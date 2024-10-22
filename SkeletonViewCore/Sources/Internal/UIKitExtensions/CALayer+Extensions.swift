@@ -86,6 +86,7 @@ extension CALayer {
         insertSublayer(sublayer.contentLayer, at: index)
         switch transition {
         case .none:
+            layoutIfNeeded()
             DispatchQueue.main.async { completion?() }
         case .crossDissolve(let duration):
             sublayer.contentLayer.setOpacity(from: 0, to: 1, duration: duration, completion: completion)
